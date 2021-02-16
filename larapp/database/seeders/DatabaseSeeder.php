@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             GameSeeder::class,
         ]);
 
-        \App\Models\User::factory(200)->create();
+        \App\Models\User::factory(100)->create();
 
         }
 }
