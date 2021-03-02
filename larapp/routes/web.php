@@ -44,6 +44,13 @@ Route::get('challenge', function () {
     }
     dd($results);
 });
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('viewusers', function() {
+    $users = App\Models\User::all();
+    return view('viewusers')->with('users', $users);
+});
