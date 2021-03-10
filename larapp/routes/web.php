@@ -61,4 +61,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('locale/{locale}', [App\Http\Controllers\LocaleController::class, 'index']);
 
-//Route::get('locale/{locale}', 'LocaleController@index');
+//Route::get('/user', [UserController::class, 'index']);
