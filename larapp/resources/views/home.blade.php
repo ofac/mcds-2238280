@@ -21,9 +21,9 @@
                         <div class="card">
                                 <img src="{{ asset('imgs/bg-users.svg') }}" width="240px" class="my-2 img-top-card">
                                 <div class="card-body">
-                                    <a href="{{-- route('users.index') --}}" class="btn btn-block btn-larapp">
+                                    <a href="{{ route('users.index') }}" class="btn btn-block btn-larapp">
                                         <i class="fa fa-users"></i>
-                                        Mdule Users
+                                        Module Users
                                     </a>
                                 </div>
                             </div>
