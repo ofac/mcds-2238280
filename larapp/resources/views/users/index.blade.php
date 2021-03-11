@@ -16,9 +16,9 @@
                     <thead>
                         <tr>
                             <th>Fullname</th>
-                            <th>Email</th>
+                            <th class="d-none d-md-table-cell">Email</th>
                             <th>Photo</th>
-                            <th>Role</th>
+                            <th class="d-none d-md-table-cell">Role</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -26,9 +26,9 @@
                         @foreach ($users as $user)
                             <tr>
                                 <td>{{ $user->fullname }}</td>
-                                <td>{{ $user->email }}</td>
+                                <td class="d-none d-md-table-cell">{{ $user->email }}</td>
                                 <td><img src="{{ asset($user->photo) }}" width="36px"></td>
-                                <td>{{ $user->role }}</td>
+                                <td class="d-none d-md-table-cell">{{ $user->role }}</td>
                                 <td>
                                     <a href="" class="btn btn-sm btn-larapp">
                                         <i class="fas fa-search"></i>
