@@ -66,7 +66,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('users.show')->with('user', $user);
     }
 
     /**
@@ -77,7 +77,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('users.edit')->with('user', $user);
     }
 
     /**
@@ -87,9 +87,24 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
-        //
+        $user->fullname  = $request->fullname;
+        $user->email     = $request->email;
+        $user->phone     = $request->phone;
+        $user->birthdate = $request->birthdate;
+        $user->gender    = $request->gender;
+        $user->address   = $request->address;
+        if ($request->hasFile('photo')) {
+            $file = time() . '.' . $request->photo->extension();
+            $request->photo->move(public_path('imgs'), $file);
+            $user->photo = 'imgs/' . $file;
+        }
+        $user->role      = $request->role;
+
+        if ($user->save()) {
+            return redirect('users')->with('message', 'The User: ' . $user->fullname . ' was successfully edited');
+        }
     }
 
     /**
