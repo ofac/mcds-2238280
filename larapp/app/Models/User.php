@@ -51,4 +51,11 @@ class User extends Authenticatable
     public function games() {
         return $this->hasMany('App\Models\Game');
     }
+
+    public function scopeNames($users, $q) {
+        if (trim($q)) {
+            $users->where('fullname', 'LIKE', "%$q%")
+                  ->orWhere('email', 'LIKE', "%$q%");
+        }
+    }
 }

@@ -11,6 +11,13 @@
                 <a href="{{ route('users.create') }}" class="btn btn-success"> 
                     <i class="fas fa-plus"></i> Add Users 
                 </a>
+                <input type="hidden" id="tmodel" value="users">
+                <input type="text" id="qsearch" name="qsearch" class="form-search" autocomplete="off" placeholder="Search">
+                <br>
+                <div class="loader d-none text-center mt-5">
+                    <img src="{{ asset('imgs/rings.svg') }}" width="120px" alt="">
+                </div>
+                
                 <br><br>
                 <table class="table table-striped table-hover">
                     <thead>
@@ -22,7 +29,7 @@
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="content">
                         @foreach ($users as $user)
                             <tr>
                                 <td>{{ $user->fullname }}</td>
@@ -36,9 +43,13 @@
                                     <a href="{{ url('users/'.$user->id.'/edit') }}" class="btn btn-sm btn-larapp">
                                         <i class="fas fa-pen"></i>
                                     </a>
-                                    <a href="" class="btn btn-sm btn-danger">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
+                                    <form action="{{ url('users/'.$user->id) }}" class="d-inline" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="button" class="btn btn-sm btn-danger btn-delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

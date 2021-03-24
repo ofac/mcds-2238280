@@ -115,6 +115,15 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        if ($user->delete()) {
+            return redirect('users')->with('message', 'The User: ' . $user->fullname . ' was successfully deleted');
+        }
     }
+
+
+    public function search(Request $request) {
+        $users = User::names($request->q)->orderBy('id', 'DESC')->paginate(50);
+        return view('users.search')->with('users', $users);
+    }
+
 }
