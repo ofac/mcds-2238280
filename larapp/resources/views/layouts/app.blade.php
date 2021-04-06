@@ -69,7 +69,7 @@
                     });
             @endif
             /* - - - - - - - - - - - - - - - - - - */
-            $('.btn-delete').click(function() {
+            $('body').on('click', '.btn-delete', function() {
                 Swal.fire({
                     title: 'Are you sure?',
                     text: "You won't be able to revert this!",

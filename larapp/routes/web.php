@@ -70,9 +70,11 @@ Route::get('locale/{locale}', [LocaleController::class, 'index']);
 
 //Route::get('/user', [UserController::class, 'index']);
 Route::post('users/search', [UserController::class, 'search']);
+Route::post('categories/search', [CategoryController::class, 'search']);
+
 
 Route::resources([
-    'users'     => UserController::class,
-    //'catgories' => CategoryController::class,
+    'users'      => UserController::class,
+    'categories' => CategoryController::class,
     //'games'     => GameController::class,
 ]);
