@@ -21,7 +21,7 @@ class GameSeeder extends Seeder
             'description' => "Luigi's Mansion 3 es un videojuego de acción-aventura desarrollado por Next Level Games y publicado por Nintendo para Nintendo Switch.",
             'user_id'     => 1,
             'category_id' => 1,
-            'slider'      => 1,
+            'slider'      => 2,
             'price'       => 59
         ]);
 
@@ -31,7 +31,7 @@ class GameSeeder extends Seeder
         $gm->description = 'Halo: Infinite es un videojuego de disparos en primera persona próximo a estrenarse de la franquicia de videojuegos de ciencia ficción creada por Bungie Studios y continuada por 343 Industries y Sperasoft.';
         $gm->user_id     = 1;
         $gm->category_id = 2;
-        $gm->slider      = 0;
+        $gm->slider      = 1;
         $gm->price       = 49;
         $gm->save();
 
@@ -41,7 +41,7 @@ class GameSeeder extends Seeder
         $gm->description = "Demon's Souls es un juego de rol de acción desarrollado por Bluepoint Games, con la ayuda de Japan Studio, y publicado por Sony Interactive Entertainment.";
         $gm->user_id     = 1;
         $gm->category_id = 3;
-        $gm->slider      = 0;
+        $gm->slider      = 1;
         $gm->price       = 79;
         $gm->save();
     }
