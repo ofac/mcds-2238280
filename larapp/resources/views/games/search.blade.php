@@ -6,7 +6,7 @@
             @if($game->slider == 1 || $game->slider == 0)
                 <button class="btn btn-sm btn-danger">No</button>
             @else
-                    <button class="btn  btn-sm btn-success">Yes</button>
+                    <button class="btn  btn-sm btn-dark">Yes</button>
             @endif
         </td>
 

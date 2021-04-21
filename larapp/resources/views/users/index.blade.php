@@ -11,6 +11,9 @@
                 <a href="{{ route('users.create') }}" class="btn btn-success"> 
                     <i class="fas fa-plus"></i> Add Users 
                 </a>
+                <a href="{{ url('export/users/pdf') }}" class="btn btn-larapp"> 
+                    <i class="fas fa-file-pdf"></i> Export PDF 
+                </a>
                 <input type="hidden" id="tmodel" value="users">
                 <input type="text" id="qsearch" name="qsearch" class="form-search" autocomplete="off" placeholder="Search">
                 <br>

@@ -55,11 +55,11 @@
 
                         <div class="form-group">
                                 <div class="text-center my-3">
-                                    <img src="{{ asset('imgs/no-game.png') }}" width="120px" id="preview" class="img-thumbnail rounded-circle">
+                                    <img src="{{ asset('imgs/no-game.png') }}" width="120px" id="preview" class="img-thumbnail">
                                 </div>
                                 <button type="button" class="btn btn-block btn-secondary btn-upload"> 
                                     <i class="fas fa-upload"></i>
-                                    Upload Category Image 
+                                    Upload Game Image 
                                 </button>
                                 <input id="photo" type="file" class="form-control d-none @error('image') is-invalid @enderror" name="image" accept="image/*">
                                 @error('image')

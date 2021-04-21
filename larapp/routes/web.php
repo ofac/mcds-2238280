@@ -72,6 +72,8 @@ Route::get('locale/{locale}', [LocaleController::class, 'index']);
 Route::post('users/search', [UserController::class, 'search']);
 Route::post('categories/search', [CategoryController::class, 'search']);
 Route::post('games/search', [GameController::class, 'search']);
+// Export PDF
+Route::get('export/users/pdf', [UserController::class, 'pdf']);
 
 Route::resources([
     'users'      => UserController::class,
