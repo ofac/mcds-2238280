@@ -14,6 +14,16 @@
                 <a href="{{ url('export/users/pdf') }}" class="btn btn-larapp"> 
                     <i class="fas fa-file-pdf"></i> Export PDF 
                 </a>
+                <a href="{{ url('export/users/excel') }}" class="btn btn-larapp"> 
+                    <i class="fas fa-file-excel"></i> Export Excel 
+                </a>
+                <form action="{{ url('import/users/excel') }}" class="d-inline" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="file" id="file" class="d-none" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+                    <button type="button" class="btn btn-larapp btn-file">
+                        <i class="fas fa-file-upload"></i>  Import Excel
+                    </button>
+                </form>
                 <input type="hidden" id="tmodel" value="users">
                 <input type="text" id="qsearch" name="qsearch" class="form-search" autocomplete="off" placeholder="Search">
                 <br>

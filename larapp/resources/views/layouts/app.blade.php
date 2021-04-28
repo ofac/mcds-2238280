@@ -51,6 +51,13 @@
                 $('#photo').click();
             });
             /* - - - - - - - - - - - - - - - - - - */
+            $('.btn-file').click(function() {
+                $('#file').click();
+            });
+            $('#file').change(function(event) {
+                $(this).parent().submit();
+            });
+            /* - - - - - - - - - - - - - - - - - - */
             $('#photo').change(function(event) {
                 let reader = new FileReader();
                 reader.onload = function(event) {
