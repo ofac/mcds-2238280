@@ -90,14 +90,7 @@
                                 </a>
                                 <div class="dropdown-divider"></div>
                             @elseif(Auth::user()->role == "Editor")
-                                <a class="dropdown-item" href="{{ url('editor/info') }}">
-                                        <i class="fa fa-user"></i>
-                                         Mis Datos 
-                                </a>
-                                <a class="dropdown-item" href="{{ url('editor/games') }}">
-                                    <i class="fas fa-gamepad"></i>
-                                     Mis Juegos 
-                                </a>
+                                {{--  --}}
                             @endif
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
