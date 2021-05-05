@@ -140,6 +140,23 @@
                 }, 2000);
             });
             /* - - - - - - - - - - - - - - - - - - */
+            $('body').on('change', '#idcat', function(event) {
+                event.preventDefault();
+                $idcat = $(this).val();
+                $tk    = $('input[name=_token]').val();
+                $('.loader').removeClass('d-none');
+                $('#content').hide();
+                $sto = setTimeout(function() {
+                    clearTimeout($sto);
+                    $.post('gamesbycat', { 
+                        idcat:  $idcat,
+                        _token: $tk }, function(data) {
+                        $('.loader').addClass('d-none');
+                        $('#content').html(data).fadeIn('slow');
+                    });
+                },1600);
+            });
+            /* - - - - - - - - - - - - - - - - - - */
         });
     </script>
 </body>

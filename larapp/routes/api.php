@@ -3,6 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\API\GameController;
+use App\Http\Controllers\API\RegisterController;
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +18,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/* Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+}); */
+
+Route::post('register', [RegisterController::class, 'register']);
+Route::post('login', [RegisterController::class, 'login']);
+
+Route::resources([
+    'games'      => GameController::class,
+]);
+
+Route::middleware('auth:api')->group(function () {
+    //Route::resource('articles', 'API\ArticleController');
 });

@@ -17,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => 'welcome']);
+        $this->middleware('auth', ['except' => ['welcome', 'gamesbycat']]);
     }
 
     /**
@@ -46,4 +46,23 @@ class HomeController extends Controller
                               ->with('cats', $cats)
                               ->with('games', $games);
     }
+
+
+    public function gamesbycat(Request $request)
+    {
+        if ($request->idcat == 0) {
+            // All Categories
+            $cats    = Category::all();
+            $games   = Game::all();
+            return view('gamesbycat')->with('cats', $cats)
+                                     ->with('games', $games);
+        } else {
+            // By Category
+            $cat     = Category::where('id', '=', $request->idcat)->first();
+            $games   = Game::where('category_id', '=', $request->idcat)->get();
+            return view('gamesbycat')->with('cat', $cat)
+                                     ->with('games', $games);
+        }
+    }
+
 }
